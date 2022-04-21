@@ -1,67 +1,74 @@
-<main class="p-3">
-  <h3 class="py-2 logo text-clr_primary text-2xl">LINKSLY</h3>
-  <div class="py-4">
-    <h3 class="font-bold text-2xl">Hello,</h3>
-    <h3 class="font-bold text-2xl">Create Your Account</h3>
-  </div>
-  <form class="flex flex-col gap-4 py-4">
-    <input
-      class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
-      type="email"
-      name="email"
-      id="email"
-      placeholder="Email"
-    />
+<main class="p-3 sm:p-0 sm:grid sm:grid-cols-[30%_1fr] sm:h-[100vh]">
+  <img
+    class="hidden sm:block object-cover bg-emerald-400 h-[100vh]"
+    src="/assets/auth_bg.jpg"
+    alt="register page image"
+  />
+  <div class="sm:px-5 sm:pt-[10%]">
+    <h3 class="py-2 logo text-clr_primary text-2xl">LINKSLY</h3>
+    <div class="py-4">
+      <h3 class="font-bold text-2xl">Hello,</h3>
+      <h3 class="font-bold text-2xl">Create Your Account</h3>
+    </div>
+    <form class="flex flex-col gap-4 py-4">
+      <input
+        class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email"
+      />
 
-    <input
-      class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
-      type="text"
-      name="username"
-      id="username"
-      placeholder="Username"
-    />
+      <input
+        class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
+        type="text"
+        name="username"
+        id="username"
+        placeholder="Username"
+      />
 
-    <input
-      class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
-      type="text"
-      name="fname"
-      id="fname"
-      placeholder="First Name"
-    />
+      <input
+        class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
+        type="text"
+        name="fname"
+        id="fname"
+        placeholder="First Name"
+      />
 
-    <input
-      class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
-      type="text"
-      name="lname"
-      id="lname"
-      placeholder="Last Name"
-    />
+      <input
+        class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
+        type="text"
+        name="lname"
+        id="lname"
+        placeholder="Last Name"
+      />
 
-    <input
-      class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
-      type="password"
-      name="password"
-      id="password"
-      placeholder="Password"
-    />
+      <input
+        class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+      />
 
-    <input
-      class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
-      type="password"
-      name="cpassword"
-      id="cpassword"
-      placeholder="Confirm Password"
-    />
+      <input
+        class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
+        type="password"
+        name="cpassword"
+        id="cpassword"
+        placeholder="Confirm Password"
+      />
 
-    <input
-      class="text-white border-2 border-clr_primary bg-clr_primary py-2 font-bold rounded-md cursor-pointer hover:bg-white hover:text-clr_primary transition-colors"
-      type="submit"
-      value="Register"
-    />
-  </form>
+      <input
+        class="text-white border-2 border-clr_primary bg-clr_primary py-2 font-bold rounded-md cursor-pointer hover:bg-white hover:text-clr_primary transition-colors"
+        type="submit"
+        value="Register"
+      />
+    </form>
 
-  <div class="flex items-center gap-1 justify-center">
-    <p class="text-sm">Already have an account?</p>
-    <a class="text-clr_primary font-bold" href="#">Log In</a>
+    <div class="flex items-center gap-1 justify-center">
+      <p class="text-sm">Already have an account?</p>
+      <a class="text-clr_primary font-bold" href="#">Log In</a>
+    </div>
   </div>
 </main>
