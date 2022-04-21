@@ -10,6 +10,6 @@ export function ConfirmedValidator(
 
     return f && matchF && f.value === matchF.value
       ? null
-      : { passwordsNotEqual: true };
+      : { NotEqual: true };
   };
 }

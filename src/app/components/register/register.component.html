@@ -10,13 +10,18 @@
       <h3 class="font-bold text-2xl">Hello,</h3>
       <h3 class="font-bold text-2xl">Create Your Account</h3>
     </div>
-    <form class="flex flex-col gap-4 py-4">
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      class="flex flex-col gap-4 py-4"
+    >
       <input
         class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
         type="email"
         name="email"
         id="email"
         placeholder="Email"
+        formControlName="email"
       />
 
       <input
@@ -25,6 +30,7 @@
         name="username"
         id="username"
         placeholder="Username"
+        formControlName="uname"
       />
 
       <input
@@ -33,6 +39,7 @@
         name="fname"
         id="fname"
         placeholder="First Name"
+        formControlName="fname"
       />
 
       <input
@@ -41,6 +48,7 @@
         name="lname"
         id="lname"
         placeholder="Last Name"
+        formControlName="lname"
       />
 
       <input
@@ -49,15 +57,25 @@
         name="password"
         id="password"
         placeholder="Password"
+        formControlName="pwd"
       />
 
-      <input
-        class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
-        type="password"
-        name="cpassword"
-        id="cpassword"
-        placeholder="Confirm Password"
-      />
+      <div>
+        <input
+          class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
+          type="password"
+          name="cpassword"
+          id="cpassword"
+          placeholder="Confirm Password"
+          formControlName="confPwd"
+        />
+        <p
+          *ngIf="form.errors?.['NotEqual'] && form.controls['confPwd'].touched"
+          class="text-red-600"
+        >
+          Passwords don't match
+        </p>
+      </div>
 
       <input
         class="text-white border-2 border-clr_primary bg-clr_primary py-2 font-bold rounded-md cursor-pointer hover:bg-white hover:text-clr_primary transition-colors"

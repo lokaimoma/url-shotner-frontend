@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Proza+Libre:wght@700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Proza+Libre:wght@700&display=swap');
 
 .custom-shape-divider-bottom-1650551092 {
     position: absolute;
