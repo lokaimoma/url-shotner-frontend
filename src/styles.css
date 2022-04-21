@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Proza+Libre:wght@700&display=swap');
+
 .custom-shape-divider-bottom-1650551092 {
     position: absolute;
     bottom: 0;
@@ -21,6 +23,10 @@
 
 .custom-shape-divider-bottom-1650551092 .shape-fill {
     fill: #FFFFFF;
+}
+
+.logo {
+    @apply font-logo-font font-bold
 }
 
 
