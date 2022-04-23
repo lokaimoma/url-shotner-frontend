@@ -24,14 +24,19 @@
         formControlName="email"
       />
 
-      <input
-        class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
-        type="text"
-        name="username"
-        id="username"
-        placeholder="Username"
-        formControlName="uname"
-      />
+      <div>
+        <input
+          class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Username"
+          formControlName="uname"
+        />
+        <p *ngIf="state.showUserNameTakenError" class="text-red-600">
+          Username Already Taken
+        </p>
+      </div>
 
       <input
         class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
@@ -78,9 +83,10 @@
       </div>
 
       <input
-        class="text-white border-2 border-clr_primary bg-clr_primary py-2 font-bold rounded-md cursor-pointer hover:bg-white hover:text-clr_primary transition-colors"
+        class="text-white border-2 border-clr_primary bg-clr_primary py-2 font-bold rounded-md cursor-pointer hover:bg-white hover:text-clr_primary transition-colors disabled:bg-blue-200"
         type="submit"
         value="Register"
+        [disabled]="!form.valid"
       />
     </form>
 

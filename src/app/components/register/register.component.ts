@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
+import { RegisterService } from 'src/app/services/register.service';
+import { RegisterScreenState } from 'src/app/states/RegisterScreenState';
 import { ConfirmedValidator } from './validators';
 
 @Component({
@@ -7,8 +10,10 @@ import { ConfirmedValidator } from './validators';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent implements OnInit {
-  constructor(private fb: FormBuilder) {}
+export class RegisterComponent implements AfterViewInit {
+  constructor(private fb: FormBuilder, private rs: RegisterService) {}
+
+  state = new RegisterScreenState();
 
   form = this.fb.group(
     {
@@ -22,7 +27,23 @@ export class RegisterComponent implements OnInit {
     { validators: ConfirmedValidator('pwd', 'confPwd') }
   );
 
-  ngOnInit(): void {}
+  onSubmit() {
+    console.log(this.form.value);
+  }
 
-  onSubmit() {}
+  ngAfterViewInit(): void {
+    this.form.controls['uname'].valueChanges
+      .pipe(
+        filter((v) => v != ''),
+        debounceTime(500),
+        distinctUntilChanged()
+      )
+      .subscribe({
+        next: (v) => {
+          this.rs.checkUserNameExists(v).then((isTaken) => {
+            this.state.showUserNameTakenError = isTaken;
+          });
+        },
+      });
+  }
 }
