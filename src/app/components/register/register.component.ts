@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
 import { RegisterService } from 'src/app/services/register.service';
 import { RegisterScreenState } from 'src/app/states/RegisterScreenState';
+import { RegisterUser } from 'src/app/types/request';
+import { environment } from 'src/environments/environment';
 import { ConfirmedValidator } from './validators';
 
 @Component({
@@ -28,7 +30,34 @@ export class RegisterComponent implements AfterViewInit {
   );
 
   onSubmit() {
-    console.log(this.form.value);
+    if (!this.state.showUserNameTakenError) {
+      this.state.showRegistrationError = false;
+      this.state.showPleaseWait = true;
+      setTimeout(
+        () => {
+          const payload: RegisterUser = {
+            first_name: this.form.controls['fname'].value,
+            last_name: this.form.controls['lname'].value,
+            email: this.form.controls['email'].value,
+            password: this.form.controls['pwd'].value,
+            username: this.form.controls['uname'].value,
+          };
+          this.rs
+            .registerUser(payload)
+            .then((successful) => {
+              if (successful) {
+                // redirect
+              }
+              // else
+            })
+            .catch((err) => {
+              this.state.showRegistrationError = true;
+              this.state.showPleaseWait = false;
+            });
+        },
+        environment.production ? 0 : 3000
+      );
+    }
   }
 
   ngAfterViewInit(): void {

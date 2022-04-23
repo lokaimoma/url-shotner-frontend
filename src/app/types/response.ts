@@ -2,4 +2,11 @@ type UserNameTakenResponse = {
   taken: boolean;
 };
 
-export { UserNameTakenResponse };
+type RegisterUserResponse = {
+  username: string,
+  first_name: string,
+  last_name: string,
+  email: string
+}
+
+export { UserNameTakenResponse, RegisterUserResponse };
