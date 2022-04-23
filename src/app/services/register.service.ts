@@ -3,12 +3,18 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { RegisterUser } from '../types/request';
 import { RegisterUserResponse, UserNameTakenResponse } from '../types/response';
+import { AuthStorageService } from './auth-storage.service';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RegisterService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private authStorageService: AuthStorageService,
+    private authService: AuthService
+  ) {}
 
   checkUserNameExists(v: string) {
     return new Promise<boolean>((resolve, reject) => {
@@ -29,9 +35,19 @@ export class RegisterService {
         .post<RegisterUserResponse>(`${environment.API_URL}/api/register/`, u)
         .subscribe({
           next: (data) => {
-            resolve(true);
+            this.authStorageService.saveUserInfo(data);
+            this.authService
+              .getTokens(u.username, u.password)
+              .then((successful) => {
+                if (successful) {
+                  resolve(true);
+                } else {
+                  reject(new Error('Error fetching auth tokens'));
+                }
+              })
+              .catch((err) => reject(err));
           },
-          error: (err) => reject(),
+          error: (err) => reject(err),
         });
     });
   }

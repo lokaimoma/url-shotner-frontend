@@ -21,6 +21,10 @@ export class AuthStorageService {
     );
   }
 
+  updateAccessToken(access: string) {
+    window.localStorage.setItem(this.ACCESSTOKEN_KEY, access);
+  }
+
   saveUserInfo(u: RegisterUserResponse) {
     window.localStorage.setItem(this.USER_INFO_KEY, JSON.stringify(u));
   }

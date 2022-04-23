@@ -2,4 +2,9 @@ import { RegisterUserResponse } from './response';
 
 type RegisterUser = RegisterUserResponse & { password: string };
 
-export { RegisterUser };
+type TokensResponse = {
+    access: string,
+    refresh: string
+}
+
+export { RegisterUser, TokensResponse };
