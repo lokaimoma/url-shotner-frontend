@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RegisterComponent } from './components/register/register.component';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, RegisterComponent],
+  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
