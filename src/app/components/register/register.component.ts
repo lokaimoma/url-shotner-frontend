@@ -1,6 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
+
 import { RegisterService } from 'src/app/services/register.service';
 import { RegisterScreenState } from 'src/app/states/RegisterScreenState';
 import { RegisterUser } from 'src/app/types/request';
@@ -13,7 +15,11 @@ import { ConfirmedValidator } from './validators';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements AfterViewInit {
-  constructor(private fb: FormBuilder, private rs: RegisterService) {}
+  constructor(
+    private fb: FormBuilder,
+    private rs: RegisterService,
+    private router: Router
+  ) {}
 
   state = new RegisterScreenState();
 
@@ -44,11 +50,8 @@ export class RegisterComponent implements AfterViewInit {
           };
           this.rs
             .registerUser(payload)
-            .then((successful) => {
-              if (successful) {
-                // redirect
-              }
-              // else
+            .then((_) => {
+              this.router.navigateByUrl('/app');
             })
             .catch((err) => {
               this.state.showRegistrationError = true;
