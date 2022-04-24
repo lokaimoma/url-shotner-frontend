@@ -1,1 +1,74 @@
-<p>login works!</p>
+<main class="p-3 sm:p-0 sm:grid sm:grid-cols-[30%_1fr] sm:h-[100vh]">
+  <img
+    class="hidden sm:block object-cover bg-emerald-400 h-[100vh]"
+    src="/assets/auth_bg.jpg"
+    alt="register page image"
+  />
+  <div class="sm:px-5 sm:pt-[10%]">
+    <h3 class="py-2 logo text-clr_primary text-2xl">LINKSLY</h3>
+    <div class="py-4">
+      <h3 class="font-bold text-2xl">Hello,</h3>
+      <h3 class="font-bold text-2xl">Create Your Account</h3>
+    </div>
+    <form [formGroup]="form" class="flex flex-col gap-4 py-4">
+      <input
+        class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
+        type="text"
+        name="uname"
+        id="uname"
+        placeholder="Username"
+        formControlName="uname"
+      />
+
+      <input
+        class="px-3 py-2 border-2 w-[100%] outline-none focus:border-clr_primary"
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        formControlName="pwd"
+      />
+
+      <input
+        class="text-white border-2 border-clr_primary bg-clr_primary py-2 font-bold rounded-md cursor-pointer hover:bg-white hover:text-clr_primary transition-colors disabled:bg-blue-200"
+        type="submit"
+        value="Log In"
+        [disabled]="!form.valid"
+        *ngIf="!state.showPleaseWait"
+      />
+      <div
+        *ngIf="state.showPleaseWait"
+        class="text-white border-2 border-clr_primary rounded-md font-bold w-max py-2 px-5 m-auto bg-clr_primary flex items-center cursor-none"
+      >
+        <svg
+          role="status"
+          class="mr-2 w-8 h-8 text-gray-200 animate-spin fill-blue-600"
+          viewBox="0 0 100 101"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+            fill="currentColor"
+          />
+          <path
+            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+            fill="currentFill"
+          />
+        </svg>
+        <h5 class="text-xl">Please Wait</h5>
+      </div>
+    </form>
+
+    <div class="flex items-center gap-1 justify-center">
+      <p class="text-sm">Don&apos;t have an account yet?</p>
+      <a class="text-clr_primary font-bold" routerLink="/register">Sign Up</a>
+    </div>
+    <div class="flex items-center gap-1 justify-center">
+      <p class="text-sm">Forgot Your Password?</p>
+      <a class="text-clr_primary font-bold" href="javascript:void(0)"
+        >Click here to reset</a
+      >
+    </div>
+  </div>
+</main>

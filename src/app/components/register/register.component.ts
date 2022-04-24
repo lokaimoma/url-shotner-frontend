@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
 
 import { RegisterService } from 'src/app/services/register.service';
-import { RegisterScreenState } from 'src/app/states/RegisterScreenState';
+import { RegisterScreenState } from 'src/app/states/screen';
 import { RegisterUser } from 'src/app/types/request';
 import { environment } from 'src/environments/environment';
 import { ConfirmedValidator } from './validators';
