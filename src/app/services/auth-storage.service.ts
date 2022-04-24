@@ -46,10 +46,13 @@ export class AuthStorageService {
   }
 
   checkIfTokenIsOld(): boolean {
-    const dateInserted = window.localStorage.getItem('tkdt');
+    const dateInserted = window.localStorage.getItem(
+      this.TOKEN_INSERT_DATE_KEY
+    );
     if (dateInserted === null) return true;
+    if (dateInserted.trim() === '') return true;
     const days = getDaysDelta(Date.parse(dateInserted), Date.now());
-    if (days > 0) return true;
+    if (days >= 1) return true;
     return false;
   }
 
