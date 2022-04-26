@@ -58,7 +58,7 @@ export class AuthService {
   refreshToken() {
     const refresh = this.authStorageService.getRefreshToken();
     return this.httpClient.post<ResfreshTokenResponse>(
-      `${environment.API_URL}/api/token/refresh`,
+      `${environment.API_URL}/api/token/refresh/`,
       { refresh }
     );
   }

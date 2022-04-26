@@ -5,6 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor,
   HttpErrorResponse,
+  HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import {
   BehaviorSubject,
@@ -20,7 +21,7 @@ import { AuthStorageService } from './services/auth-storage.service';
 import { AuthService } from './services/auth.service';
 
 @Injectable()
-export class HttpInterceptorInterceptor implements HttpInterceptor {
+export class HttpAuthInterceptorInterceptor implements HttpInterceptor {
   constructor(
     private authStorage: AuthStorageService,
     private authService: AuthService
@@ -61,21 +62,23 @@ export class HttpInterceptorInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     if (!this.isRefreshing) {
+      console.log('is getting auth keys');
       this.isRefreshing = true;
       this.rtkSubject.next(null);
-      this.authService.refreshToken().pipe(
-        switchMap((res) => {
+      this.authService.refreshToken().subscribe({
+        next: (res) => {
+          console.log('new token', res);
           this.isRefreshing = false;
           this.authStorage.updateAccessToken(res.access);
           this.rtkSubject.next(res.access);
-          return next.handle(this.addAuthorizationHeader(request, res.access));
-        }),
-        catchError((err) => {
+        },
+        error: (err) => {
+          console.error(err);
           this.isRefreshing = false;
           this.authStorage.clearStorage();
           return throwError(() => err);
-        })
-      );
+        },
+      });
     }
     return this.rtkSubject.pipe(
       filter((v) => v !== null),
@@ -93,3 +96,11 @@ export class HttpInterceptorInterceptor implements HttpInterceptor {
     });
   }
 }
+
+export const AUTH_INTERCEPTOR_PROVIDERS = [
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpAuthInterceptorInterceptor,
+    multi: true,
+  },
+];

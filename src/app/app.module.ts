@@ -9,6 +9,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
+import { AUTH_INTERCEPTOR_PROVIDERS } from './http-interceptor.interceptor';
 
 @NgModule({
   declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent],
@@ -18,7 +19,7 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AUTH_INTERCEPTOR_PROVIDERS],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
