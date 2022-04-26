@@ -30,7 +30,7 @@ export class LoginComponent {
     setTimeout(
       () => {
         this.as
-          .getTokens(
+          .login(
             this.form.controls['uname'].value,
             this.form.controls['pwd'].value
           )

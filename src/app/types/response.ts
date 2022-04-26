@@ -2,11 +2,24 @@ type UserNameTakenResponse = {
   taken: boolean;
 };
 
-type RegisterUserResponse = {
-  username: string,
-  first_name: string,
-  last_name: string,
-  email: string
-}
+type User = {
+  username: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+};
 
-export { UserNameTakenResponse, RegisterUserResponse };
+type ResfreshTokenResponse = {
+  access: string;
+};
+
+type LoginResponse = {
+  username: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  access: string;
+  refresh: string;
+};
+
+export { UserNameTakenResponse, User, ResfreshTokenResponse, LoginResponse };

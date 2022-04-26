@@ -1,6 +1,6 @@
-import { RegisterUserResponse } from './response';
+import { User } from "./response";
 
-type RegisterUser = RegisterUserResponse & { password: string };
+type RegisterUser = User & { password: string };
 
 type TokensResponse = {
     access: string,

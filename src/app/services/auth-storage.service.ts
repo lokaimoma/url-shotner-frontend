@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { getDaysDelta } from 'src/utils';
-import { RegisterUserResponse } from '../types/response';
+import { User } from '../types/response';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +25,7 @@ export class AuthStorageService {
     window.localStorage.setItem(this.ACCESSTOKEN_KEY, access);
   }
 
-  saveUserInfo(u: RegisterUserResponse) {
+  saveUserInfo(u: User) {
     window.localStorage.setItem(this.USER_INFO_KEY, JSON.stringify(u));
   }
 
@@ -37,7 +37,7 @@ export class AuthStorageService {
     return window.localStorage.getItem(this.REFRESHTOKEN_KEY);
   }
 
-  getUserInfo(): RegisterUserResponse | null {
+  getUserInfo(): User | null {
     const d = JSON.parse(
       window.localStorage.getItem(this.USER_INFO_KEY) ?? '{}'
     );

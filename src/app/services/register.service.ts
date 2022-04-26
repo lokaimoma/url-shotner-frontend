@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { RegisterUser } from '../types/request';
-import { RegisterUserResponse, UserNameTakenResponse } from '../types/response';
+import { User, UserNameTakenResponse } from '../types/response';
 import { AuthStorageService } from './auth-storage.service';
 import { AuthService } from './auth.service';
 
@@ -32,7 +32,7 @@ export class RegisterService {
   registerUser(u: RegisterUser) {
     return new Promise<boolean>((resolve, reject) => {
       this.httpClient
-        .post<RegisterUserResponse>(`${environment.API_URL}/api/register/`, u)
+        .post<User>(`${environment.API_URL}/api/register/`, u)
         .subscribe({
           next: (data) => {
             this.authStorageService.saveUserInfo(data);
