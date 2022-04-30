@@ -30,4 +30,7 @@
     @apply font-logo-font font-bold
 }
 
+.active-link {
+    @apply rounded-md border-2 border-clr_primary p-1
+}
 
