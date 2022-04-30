@@ -48,6 +48,7 @@ export class HttpAuthInterceptorInterceptor implements HttpInterceptor {
           err instanceof HttpErrorResponse &&
           !req.url.includes('api/token/') &&
           !req.url.includes('api/register/') &&
+          !req.url.includes('api/login/') &&
           err.status === 401
         ) {
           return this.handleUnAuthroized(req, next);
