@@ -9,4 +9,6 @@ class LoginScreenState {
   showLoginError: boolean = false;
 }
 
-export { RegisterScreenState, LoginScreenState };
+class MainScreenState {}
+
+export { RegisterScreenState, LoginScreenState, MainScreenState };

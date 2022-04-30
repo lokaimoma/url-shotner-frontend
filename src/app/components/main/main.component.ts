@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MainScreenState } from 'src/app/states/screen';
 
 @Component({
   selector: 'linksly-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
+  state = new MainScreenState();
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor() {}
 }

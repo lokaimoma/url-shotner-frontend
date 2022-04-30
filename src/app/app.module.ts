@@ -10,9 +10,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
 import { AUTH_INTERCEPTOR_PROVIDERS } from './http-interceptor.interceptor';
+import { UrlboardComponent } from './components/urlboard/urlboard.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent],
+  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent, UrlboardComponent, SidebarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
