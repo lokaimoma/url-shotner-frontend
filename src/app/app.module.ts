@@ -12,9 +12,10 @@ import { LoginComponent } from './components/login/login.component';
 import { AUTH_INTERCEPTOR_PROVIDERS } from './http-interceptor.interceptor';
 import { UrlboardComponent } from './components/urlboard/urlboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SwitchComponent } from './components/reusables/switch/switch.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent, UrlboardComponent, SidebarComponent],
+  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent, UrlboardComponent, SidebarComponent, SwitchComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,0 +1,42 @@
+.switch {
+    display: block;
+    width: 35px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+input:checked + .knob {
+    background-color: rgb(63, 63, 224);
+}
+
+input:checked + .knob::before {
+    transform: translateX(12px);
+}
+
+.knob {
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: all .4s;
+}
+
+.knob::before {
+    content: '';
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    left: 5px;
+    top: 20%;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all .4s;
+}
