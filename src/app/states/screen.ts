@@ -9,6 +9,8 @@ class LoginScreenState {
   showLoginError: boolean = false;
 }
 
-class MainScreenState {}
+class MainScreenState {
+  username: string = '';
+}
 
 export { RegisterScreenState, LoginScreenState, MainScreenState };

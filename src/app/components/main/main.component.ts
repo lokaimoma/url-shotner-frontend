@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthStorageService } from 'src/app/services/auth-storage.service';
 import { MainScreenState } from 'src/app/states/screen';
 
 @Component({
@@ -9,5 +10,8 @@ import { MainScreenState } from 'src/app/states/screen';
 export class MainComponent {
   state = new MainScreenState();
 
-  constructor() {}
+  constructor(private as: AuthStorageService) {
+    const u = as.getUserInfo();
+    this.state.username = u!.username;
+  }
 }
