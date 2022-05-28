@@ -22,4 +22,25 @@ type LoginResponse = {
   refresh: string;
 };
 
-export { UserNameTakenResponse, User, ResfreshTokenResponse, LoginResponse };
+type Result<T> = {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: T[];
+};
+
+type URL = {
+  code: string;
+  long_url: string;
+  date_created: string;
+  status: string;
+};
+
+export {
+  UserNameTakenResponse,
+  User,
+  ResfreshTokenResponse,
+  LoginResponse,
+  Result,
+  URL
+};

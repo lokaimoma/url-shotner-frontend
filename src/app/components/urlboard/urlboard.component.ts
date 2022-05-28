@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'linksly-urlboard',
   templateUrl: './urlboard.component.html',
-  styleUrls: ['./urlboard.component.css']
+  styleUrls: ['./urlboard.component.css'],
 })
-export class UrlboardComponent implements OnInit {
+export class UrlboardComponent implements OnInit, OnDestroy {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnDestroy(): void {}
 }

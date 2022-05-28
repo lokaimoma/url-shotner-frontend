@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { debounceTime, distinctUntilChanged, from } from 'rxjs';
+import { debounceTime, from } from 'rxjs';
 
 @Component({
   selector: 'app-switch',
