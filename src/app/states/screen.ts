@@ -1,3 +1,5 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IsUrl } from '../components/register/validators';
 import { URL } from '../types/response';
 
 class RegisterScreenState {
@@ -18,6 +20,13 @@ class MainScreenState {
 class URLBoardState {
   urls: URL[] | null = null;
   fetchUrlsError: string | null = null;
+  form: FormGroup;
+
+  constructor(fb: FormBuilder) {
+    this.form = fb.group({
+      url: ['', Validators.required, IsUrl],
+    });
+  }
 }
 
 export {

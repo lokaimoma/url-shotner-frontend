@@ -21,4 +21,15 @@ export class UrlBoardService {
         });
     });
   }
+
+  shortenUrl(longUrl: string): Promise<URL> {
+    return new Promise<URL>((resolve, reject) => {
+      this.client
+        .post<URL>(`${environment.API_URL}/api/urls/`, { long_url: longUrl })
+        .subscribe({
+          next: (d) => resolve(d),
+          error: (e) => reject(e),
+        });
+    });
+  }
 }

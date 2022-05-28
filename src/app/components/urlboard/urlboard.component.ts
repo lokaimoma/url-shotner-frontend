@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { UrlBoardService } from 'src/app/services/url-board.service';
 import { URLBoardState } from 'src/app/states/screen';
 
@@ -8,10 +9,11 @@ import { URLBoardState } from 'src/app/states/screen';
   styleUrls: ['./urlboard.component.css'],
 })
 export class UrlboardComponent implements OnInit, OnDestroy {
-  state: URLBoardState = new URLBoardState();
+  state: URLBoardState;
 
-  constructor(service: UrlBoardService) {
+  constructor(service: UrlBoardService, fb: FormBuilder) {
     // TODO : Handle pagination
+    this.state = new URLBoardState(fb);
     service
       .fetchUrls()
       .then((d) => (this.state.urls = d.results))
