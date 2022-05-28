@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-switch',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./switch.component.css'],
 })
 export class SwitchComponent implements OnInit {
+  @Input() checked: boolean = false;
+  @Output() toggle: EventEmitter<boolean> = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void {}
