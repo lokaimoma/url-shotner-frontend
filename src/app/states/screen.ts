@@ -42,9 +42,9 @@ class MainScreenState {
 
 class URLBoardState {
   urls: URL[] | null = null;
-  fetchUrlsError: string | null = null;
+  fetchUrlsError: boolean = false;
   processingRequest: boolean = false;
-  requestError: string | null = null;
+  requestError: boolean = false;
   form: FormGroup;
 
   constructor(fb: FormBuilder) {

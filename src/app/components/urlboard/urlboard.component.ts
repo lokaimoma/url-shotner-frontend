@@ -19,7 +19,7 @@ export class UrlboardComponent {
       .fetchUrls()
       .then((d) => (this.state.urls = d.results))
       .catch((_) => {
-        this.state.fetchUrlsError = 'Error fetching your urls';
+        this.state.fetchUrlsError = true;
       });
   }
 
@@ -27,10 +27,11 @@ export class UrlboardComponent {
     this.state.processingRequest = true;
     setTimeout(
       () => {
+        this.state.requestError = false;
         this.service
           .shortenUrl(this.state.form.get('url')?.value)
           .then((d) => this.state.urls?.unshift(d))
-          .catch((e) => console.log(e))
+          .catch((_) => (this.state.requestError = true))
           .finally(() => (this.state.processingRequest = false));
       },
       environment.production ? 0 : 3000
