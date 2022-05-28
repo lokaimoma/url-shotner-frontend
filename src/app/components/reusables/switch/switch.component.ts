@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { debounceTime, distinctUntilChanged, from } from 'rxjs';
 
 @Component({
   selector: 'app-switch',
@@ -12,4 +13,11 @@ export class SwitchComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    from([target.checked])
+      .pipe(debounceTime(200))
+      .subscribe((v) => this.toggle.emit(v));
+  }
 }

@@ -1,4 +1,10 @@
 <label class="switch">
-  <input type="checkbox" name="switch__" id="switch__" [checked]="checked" />
+  <input
+    type="checkbox"
+    name="switch__"
+    id="switch__"
+    [checked]="checked"
+    (change)="onChange($event)"
+  />
   <span class="knob"></span>
 </label>
