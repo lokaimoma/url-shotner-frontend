@@ -27,13 +27,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="text-center border-b-2 border-gray-300">
-        <td>skdkd</td>
-        <td class="hidden sm:table-cell">https://google.com/skldjksjfsjjs</td>
-        <td class="hidden sm:table-cell">Sunday 23 April 2022</td>
-        <td>10</td>
+      <tr
+        *ngFor="let url of state.urls"
+        class="text-center border-b-2 border-gray-300"
+      >
+        <td>{{ url.code }}</td>
+        <td class="hidden sm:table-cell">{{ url.long_url }}</td>
+        <td class="hidden sm:table-cell">{{ url.date_created }}</td>
+        <td>Not yet</td>
         <td>
-          <app-switch></app-switch>
+          <app-switch
+            [checked]="url.status.toLowerCase() === 'active'"
+          ></app-switch>
         </td>
         <td class="py-5">
           <div class="flex gap-1 justify-center">
@@ -57,4 +62,10 @@
       </tr>
     </tbody>
   </table>
+  <p
+    *ngIf="state.urls && state.urls.length <= 0"
+    class="text-center text-xl py-6"
+  >
+    You haven't shortened any URLs yet :(
+  </p>
 </main>

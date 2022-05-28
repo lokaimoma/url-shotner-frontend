@@ -1,7 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { first } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Result } from '../types/response';
+import { Result, URL } from '../types/response';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,8 @@ export class UrlBoardService {
   fetchUrls(): Promise<Result<URL>> {
     return new Promise<Result<URL>>((resolve, reject) => {
       this.client
-        .get<Result<URL>>(`${environment.API_URL}/urls/`)
+        .get<Result<URL>>(`${environment.API_URL}/api/urls/`)
+        .pipe(first())
         .subscribe({
           next: (d) => resolve(d),
           error: (err: HttpErrorResponse) => reject(err.message),

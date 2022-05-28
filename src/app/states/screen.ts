@@ -1,3 +1,5 @@
+import { URL } from '../types/response';
+
 class RegisterScreenState {
   showUserNameTakenError: boolean = false;
   showRegistrationError: boolean = false;
@@ -13,4 +15,14 @@ class MainScreenState {
   username: string = '';
 }
 
-export { RegisterScreenState, LoginScreenState, MainScreenState };
+class URLBoardState {
+  urls: URL[] | null = null;
+  fetchUrlsError: string | null = null;
+}
+
+export {
+  RegisterScreenState,
+  LoginScreenState,
+  MainScreenState,
+  URLBoardState,
+};
