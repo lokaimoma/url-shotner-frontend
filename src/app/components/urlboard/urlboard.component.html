@@ -19,21 +19,40 @@
     <thead class="border-b-2 border-clr_primary">
       <tr>
         <th>Code</th>
-        <th class="hidden sm:block">Long URL</th>
-        <th class="hidden sm:block">Date created</th>
+        <th class="hidden sm:table-cell">Long URL</th>
+        <th class="hidden sm:table-cell">Date created</th>
         <th>Redirects</th>
         <th>Status</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="text-center">
+      <tr class="text-center border-b-2 border-gray-300">
         <td>skdkd</td>
-        <td class="hidden sm:block">https://google.com/skldjksjfsjjs</td>
-        <td class="hidden sm:block">Sunday 23 April 2022</td>
+        <td class="hidden sm:table-cell">https://google.com/skldjksjfsjjs</td>
+        <td class="hidden sm:table-cell">Sunday 23 April 2022</td>
         <td>10</td>
         <td>
           <app-switch></app-switch>
+        </td>
+        <td class="py-5">
+          <div class="flex gap-1 justify-center">
+            <img
+              class="cursor-pointer"
+              src="/assets/copy.svg"
+              alt="Copy button"
+            />
+            <img
+              class="cursor-pointer"
+              src="/assets/del.svg"
+              alt="Delete button"
+            />
+            <img
+              class="cursor-pointer"
+              src="/assets/edit.svg"
+              alt="Edit button"
+            />
+          </div>
         </td>
       </tr>
     </tbody>
