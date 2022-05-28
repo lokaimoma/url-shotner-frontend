@@ -12,17 +12,15 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  state: LoginScreenState;
+
   constructor(
-    private fb: FormBuilder,
+    fb: FormBuilder,
     private as: AuthService,
     private router: Router
-  ) {}
-
-  state = new LoginScreenState();
-  form = this.fb.group({
-    uname: ['', [Validators.required]],
-    pwd: ['', [Validators.required]],
-  });
+  ) {
+    this.state = new LoginScreenState(fb);
+  }
 
   onSubmit() {
     this.state.showLoginError = false;
@@ -31,8 +29,8 @@ export class LoginComponent {
       () => {
         this.as
           .login(
-            this.form.controls['uname'].value,
-            this.form.controls['pwd'].value
+            this.state.form.controls['uname'].value,
+            this.state.form.controls['pwd'].value
           )
           .then((successfull) => {
             if (successfull) {

@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
 
@@ -7,7 +7,6 @@ import { RegisterService } from 'src/app/services/register.service';
 import { RegisterScreenState } from 'src/app/states/screen';
 import { RegisterUser } from 'src/app/types/request';
 import { environment } from 'src/environments/environment';
-import { ConfirmedValidator } from './validators';
 
 @Component({
   selector: 'linksly-register',
@@ -15,25 +14,15 @@ import { ConfirmedValidator } from './validators';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements AfterViewInit {
+  state: RegisterScreenState;
+
   constructor(
-    private fb: FormBuilder,
+    fb: FormBuilder,
     private rs: RegisterService,
     private router: Router
-  ) {}
-
-  state = new RegisterScreenState();
-
-  form = this.fb.group(
-    {
-      email: ['', [Validators.email, Validators.required]],
-      fname: ['', [Validators.required]],
-      lname: ['', [Validators.required]],
-      uname: ['', [Validators.required]],
-      pwd: ['', [Validators.required]],
-      confPwd: ['', [Validators.required]],
-    },
-    { validators: ConfirmedValidator('pwd', 'confPwd') }
-  );
+  ) {
+    this.state = new RegisterScreenState(fb);
+  }
 
   onSubmit() {
     if (!this.state.showUserNameTakenError) {
@@ -42,11 +31,11 @@ export class RegisterComponent implements AfterViewInit {
       setTimeout(
         () => {
           const payload: RegisterUser = {
-            first_name: this.form.controls['fname'].value,
-            last_name: this.form.controls['lname'].value,
-            email: this.form.controls['email'].value,
-            password: this.form.controls['pwd'].value,
-            username: this.form.controls['uname'].value,
+            first_name: this.state.form.controls['fname'].value,
+            last_name: this.state.form.controls['lname'].value,
+            email: this.state.form.controls['email'].value,
+            password: this.state.form.controls['pwd'].value,
+            username: this.state.form.controls['uname'].value,
           };
           this.rs
             .registerUser(payload)
@@ -64,7 +53,7 @@ export class RegisterComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.form.controls['uname'].valueChanges
+    this.state.form.controls['uname'].valueChanges
       .pipe(
         filter((v) => v != ''),
         debounceTime(500),

@@ -15,7 +15,7 @@
       error on our side.
     </h4>
     <form
-      [formGroup]="form"
+      [formGroup]="state.form"
       (ngSubmit)="onSubmit()"
       class="flex flex-col gap-4 py-4"
     >
@@ -79,7 +79,7 @@
           formControlName="confPwd"
         />
         <p
-          *ngIf="form.errors?.['NotEqual'] && form.controls['confPwd'].touched"
+          *ngIf="state.form.errors?.['NotEqual'] && state.form.controls['confPwd'].touched"
           class="text-red-600"
         >
           Passwords don't match
@@ -90,7 +90,7 @@
         class="text-white border-2 border-clr_primary bg-clr_primary py-2 font-bold rounded-md cursor-pointer hover:bg-white hover:text-clr_primary transition-colors disabled:bg-blue-200"
         type="submit"
         value="Register"
-        [disabled]="!form.valid"
+        [disabled]="!state.form.valid"
         *ngIf="!state.showPleaseWait"
       />
       <div
