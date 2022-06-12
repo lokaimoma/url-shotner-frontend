@@ -30,7 +30,10 @@ export class UrlboardComponent {
         this.state.requestError = false;
         this.service
           .shortenUrl(this.state.form.get('url')?.value)
-          .then((d) => this.state.urls?.unshift(d))
+          .then((d) => {
+            this.state.urls?.unshift(d);
+            this.state.form.reset();
+          })
           .catch((_) => (this.state.requestError = true))
           .finally(() => (this.state.processingRequest = false));
       },

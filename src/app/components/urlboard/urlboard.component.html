@@ -50,12 +50,12 @@
   <table class="w-full">
     <thead class="border-b-2 border-clr_primary">
       <tr>
-        <th>Code</th>
-        <th class="hidden sm:table-cell">Long URL</th>
+        <th class="hidden sm:table-cell">Code</th>
+        <th>Long URL</th>
         <th class="hidden sm:table-cell">Date created</th>
         <th>Redirects</th>
         <th>Status</th>
-        <th>Actions</th>
+        <th class="hidden sm:table-cell">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -63,8 +63,8 @@
         *ngFor="let url of state.urls"
         class="text-center border-b-2 border-gray-300"
       >
-        <td>{{ url.code }}</td>
-        <td class="hidden sm:table-cell">{{ url.long_url }}</td>
+        <td class="hidden sm:table-cell">{{ url.code }}</td>
+        <td class="py-3">{{ url.long_url }}</td>
         <td class="hidden sm:table-cell">{{ url.date_created }}</td>
         <td>Not yet</td>
         <td>
@@ -72,7 +72,7 @@
             [checked]="url.status.toLowerCase() === 'active'"
           ></app-switch>
         </td>
-        <td class="py-5">
+        <td class="hidden sm:table-cell">
           <div class="flex gap-1 justify-center">
             <img
               class="cursor-pointer"
