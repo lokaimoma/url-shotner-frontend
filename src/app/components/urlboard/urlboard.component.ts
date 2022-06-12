@@ -40,4 +40,11 @@ export class UrlboardComponent {
       environment.production ? 0 : 3000
     );
   }
+
+  onToggle(value: boolean, code: string, itemIndex: number) {
+    this.service
+      .toggleUrlStatus(value, code)
+      .then((d) => {})
+      .catch((err) => console.log(err));
+  }
 }

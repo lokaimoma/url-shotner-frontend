@@ -60,7 +60,7 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let url of state.urls"
+        *ngFor="let url of state.urls; let i_index = index"
         class="text-center border-b-2 border-gray-300"
       >
         <td class="hidden sm:table-cell">{{ url.code }}</td>
@@ -70,6 +70,7 @@
         <td>
           <app-switch
             [checked]="url.status.toLowerCase() === 'active'"
+            (toggle)="onToggle($event, url.code, i_index)"
           ></app-switch>
         </td>
         <td class="hidden sm:table-cell">
