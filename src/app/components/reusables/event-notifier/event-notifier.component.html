@@ -1,0 +1,74 @@
+<div class="absolute bottom-5 flex flex-col gap-1">
+  <div
+    *ngFor="let event of events; let e_index = index"
+    class="border-2 p-2 rounded-md bg-slate-100/95 flex items-center gap-1"
+  >
+    <svg
+      role="status"
+      class="mr-2 w-5 h-5 text-gray-200 animate-spin fill-blue-600"
+      viewBox="0 0 100 101"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      *ngIf="event.type.toLowerCase() === 'inprogress'"
+    >
+      <path
+        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+        fill="currentColor"
+      />
+      <path
+        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+        fill="currentFill"
+      />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      class="fill-red-500"
+      *ngIf="event.type.toLowerCase() === 'error'"
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <circle cx="15.5" cy="9.5" r="1.5" />
+      <circle cx="8.5" cy="9.5" r="1.5" />
+      <path
+        d="M12 14c-2.33 0-4.32 1.45-5.12 3.5h1.67c.69-1.19 1.97-2 3.45-2s2.75.81 3.45 2h1.67c-.8-2.05-2.79-3.5-5.12-3.5zm-.01-12C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+      />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      class="fill-green-500"
+      *ngIf="event.type.toLowerCase() === 'success'"
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24"
+      width="24"
+      class="fill-orange-600"
+      *ngIf="event.type.toLowerCase() === 'warning'"
+    >
+      <path
+        d="M12 18.85Q11.575 18.85 11.288 18.55Q11 18.25 11 17.85Q11 17.425 11.288 17.138Q11.575 16.85 12 16.85Q12.425 16.85 12.713 17.138Q13 17.425 13 17.85Q13 18.25 12.713 18.55Q12.425 18.85 12 18.85ZM11.275 15.05V4.15H12.725V15.05Z"
+      />
+    </svg>
+    <p
+      [class.text-green-500]="
+        event.type.toLowerCase() === 'success' ||
+        event.type.toLowerCase() === 'info'
+      "
+      [class.text-red-600]="
+        event.type.toLowerCase() === 'warning' ||
+        event.type.toLowerCase() === 'error'
+      "
+      [class.text-blue-600]="event.type.toLowerCase() === 'inprogress'"
+    >
+      This is a notification
+    </p>
+  </div>
+</div>

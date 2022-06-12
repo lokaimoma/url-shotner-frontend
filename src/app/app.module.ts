@@ -13,9 +13,10 @@ import { AUTH_INTERCEPTOR_PROVIDERS } from './http-interceptor.interceptor';
 import { UrlboardComponent } from './components/urlboard/urlboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SwitchComponent } from './components/reusables/switch/switch.component';
+import { EventNotifierComponent } from './components/reusables/event-notifier/event-notifier.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent, UrlboardComponent, SidebarComponent, SwitchComponent],
+  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent, UrlboardComponent, SidebarComponent, SwitchComponent, EventNotifierComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
