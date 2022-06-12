@@ -60,7 +60,7 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let url of state.urls; let i_index = index"
+        *ngFor="let url of state.urls"
         class="text-center border-b-2 border-gray-300"
       >
         <td class="hidden sm:table-cell">{{ url.code }}</td>
@@ -70,7 +70,7 @@
         <td>
           <app-switch
             [checked]="url.status.toLowerCase() === 'active'"
-            (toggle)="onToggle($event, url.code, i_index)"
+            (toggle)="onToggle($event, url.code)"
           ></app-switch>
         </td>
         <td class="hidden sm:table-cell">
@@ -104,5 +104,5 @@
   <h4 *ngIf="state.fetchUrlsError" class="text-red-600 text-base sm:text-xl">
     An error occured whiles fetching your shortend urls.
   </h4>
-  <linksly-event-notifier></linksly-event-notifier>
+  <linksly-event-notifier [events]="state.events"></linksly-event-notifier>
 </main>

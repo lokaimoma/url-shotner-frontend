@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { UrlBoardService } from 'src/app/services/url-board.service';
 import { URLBoardState } from 'src/app/states/screen';
 import { environment } from 'src/environments/environment';
+import { EventType } from '../reusables/event-notifier/event-notifier.component';
 
 @Component({
   selector: 'linksly-urlboard',
@@ -41,10 +42,44 @@ export class UrlboardComponent {
     );
   }
 
-  onToggle(value: boolean, code: string, itemIndex: number) {
-    this.service
-      .toggleUrlStatus(value, code)
-      .then((d) => {})
-      .catch((err) => console.log(err));
+  onToggle(value: boolean, code: string) {
+    let eventIndex = this.state.events.length;
+    this.state.events.push({
+      message: 'Updating url status',
+      type: EventType.INPROGRESS,
+    });
+    setTimeout(
+      () => {
+        this.service
+          .toggleUrlStatus(value, code)
+          .then(
+            (_) =>
+              (this.state.events[eventIndex] = {
+                message: 'URL status updated',
+                type: EventType.SUCCESS,
+              })
+          )
+          .catch(
+            (_) =>
+              (this.state.events[eventIndex] = {
+                message: 'Error updating url status',
+                type: EventType.ERROR,
+              })
+          )
+          .finally(() =>
+            setTimeout(() => {
+              // Event has to be removed, but using slice causes loss of reference
+              // A better solution will be added later
+              // If you have a better way to do it without losing reference, you can
+              // add it
+              this.state.events[eventIndex] = {
+                message: null,
+                type: EventType.NONE,
+              };
+            }, 3000)
+          );
+      },
+      environment.production ? 0 : 3000
+    );
   }
 }

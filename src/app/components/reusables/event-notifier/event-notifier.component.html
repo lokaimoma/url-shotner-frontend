@@ -2,6 +2,7 @@
   <div
     *ngFor="let event of events; let e_index = index"
     class="border-2 p-2 rounded-md bg-slate-100/95 flex items-center gap-1"
+    [class.hidden]="event.message === null || event.type === 'none'"
   >
     <svg
       role="status"
@@ -68,7 +69,7 @@
       "
       [class.text-blue-600]="event.type.toLowerCase() === 'inprogress'"
     >
-      This is a notification
+      {{ event.message }}
     </p>
   </div>
 </div>

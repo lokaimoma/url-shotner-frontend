@@ -6,10 +6,11 @@ export enum EventType {
   INPROGRESS = 'inprogress',
   INFO = 'info',
   ERROR = 'error',
+  NONE = 'none',
 }
 
 export type Event = {
-  message: string;
+  message: string | null;
   type: EventType;
 };
 
