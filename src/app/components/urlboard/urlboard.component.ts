@@ -82,4 +82,33 @@ export class UrlboardComponent {
       environment.production ? 0 : 3000
     );
   }
+
+  handleCopy(code: string) {
+    const url = `${environment.API_URL}/${code}/`;
+    const lastIndex = this.state.events.length;
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        this.state.events.push({
+          message: 'Link copied successfully',
+          type: EventType.INFO,
+        });
+      })
+      .catch((_) =>
+        this.state.events.push({
+          message: 'An error occured whiles copying to clipboard',
+          type: EventType.ERROR,
+        })
+      )
+      .finally(() =>
+        setTimeout(
+          () =>
+            (this.state.events[lastIndex] = {
+              message: null,
+              type: EventType.NONE,
+            }),
+          3000
+        )
+      );
+  }
 }
