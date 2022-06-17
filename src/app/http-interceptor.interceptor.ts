@@ -63,18 +63,15 @@ export class HttpAuthInterceptorInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     if (!this.isRefreshing) {
-      console.log('is getting auth keys');
       this.isRefreshing = true;
       this.rtkSubject.next(null);
       this.authService.refreshToken().subscribe({
         next: (res) => {
-          console.log('new token', res);
           this.isRefreshing = false;
           this.authStorage.updateAccessToken(res.access);
           this.rtkSubject.next(res.access);
         },
         error: (err) => {
-          console.error(err);
           this.isRefreshing = false;
           this.authStorage.clearStorage();
           return throwError(() => err);

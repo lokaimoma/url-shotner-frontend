@@ -48,4 +48,13 @@ export class UrlBoardService {
         });
     });
   }
+
+  deleteUrl(code: string) {
+    return new Promise<boolean>((resolve, _) => {
+      this.client.delete(`${environment.API_URL}/api/urls/${code}/`).subscribe({
+        next: (_) => resolve(true),
+        error: (_) => resolve(false),
+      });
+    });
+  }
 }

@@ -42,7 +42,7 @@ class MainScreenState {
 }
 
 class URLBoardState {
-  urls: URL[] | null = null;
+  urls: URL[] | undefined = undefined;
   fetchUrlsError: boolean = false;
   processingRequest: boolean = false;
   requestError: boolean = false;

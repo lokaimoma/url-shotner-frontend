@@ -43,7 +43,7 @@ export class UrlboardComponent {
   }
 
   onToggle(value: boolean, code: string) {
-    let eventIndex = this.state.events.length;
+    const eventIndex = this.state.events.length;
     this.state.events.push({
       message: 'Updating url status',
       type: EventType.INPROGRESS,
@@ -110,5 +110,42 @@ export class UrlboardComponent {
           3000
         )
       );
+  }
+
+  handleDelete(code: string, index: number) {
+    const lastIndex = this.state.events.length;
+    this.state.events.push({
+      message: 'Deleting url',
+      type: EventType.INPROGRESS,
+    });
+    setTimeout(() => {
+      this.service
+        .deleteUrl(code)
+        .then((successful) => {
+          if (successful) {
+            this.state.events[lastIndex] = {
+              message: 'Delete successful',
+              type: EventType.SUCCESS,
+            };
+            console.log(index);
+            this.state.urls?.splice(index, 1);
+          } else {
+            this.state.events[lastIndex] = {
+              message: 'Error deleting url',
+              type: EventType.ERROR,
+            };
+          }
+        })
+        .finally(() =>
+          setTimeout(
+            () =>
+              (this.state.events[lastIndex] = {
+                message: null,
+                type: EventType.NONE,
+              }),
+            3000
+          )
+        );
+    }, 3000);
   }
 }
