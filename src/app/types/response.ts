@@ -34,6 +34,7 @@ type URL = {
   long_url: string;
   date_created: string;
   status: string;
+  redirects: number;
 };
 
 export {
@@ -42,5 +43,5 @@ export {
   ResfreshTokenResponse,
   LoginResponse,
   Result,
-  URL
+  URL,
 };

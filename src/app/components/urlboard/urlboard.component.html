@@ -66,7 +66,7 @@
         <td class="hidden sm:table-cell">{{ url.code }}</td>
         <td class="py-3">{{ url.long_url }}</td>
         <td class="hidden sm:table-cell">{{ url.date_created }}</td>
-        <td>Not yet</td>
+        <td>{{ url.redirects }}</td>
         <td>
           <app-switch
             [checked]="url.status.toLowerCase() === 'active'"
