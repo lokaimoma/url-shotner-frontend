@@ -1,4 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 export function ConfirmedValidator(
   controlName: string,
@@ -18,6 +19,10 @@ export function IsUrl(
   return new Promise((resolve, _) => {
     try {
       new URL(control.value);
+      if (control.value.indexOf(environment.API_URL) > -1) {
+        resolve({ invalid: true });
+        return;
+      }
     } catch (e) {
       resolve({ invalid: true });
     }
