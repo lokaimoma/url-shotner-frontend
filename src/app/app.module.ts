@@ -14,9 +14,10 @@ import { UrlboardComponent } from './components/urlboard/urlboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SwitchComponent } from './components/reusables/switch/switch.component';
 import { EventNotifierComponent } from './components/reusables/event-notifier/event-notifier.component';
+import { PromptComponent } from './components/prompt/prompt.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent, UrlboardComponent, SidebarComponent, SwitchComponent, EventNotifierComponent],
+  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent, UrlboardComponent, SidebarComponent, SwitchComponent, EventNotifierComponent, PromptComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

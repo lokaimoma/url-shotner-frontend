@@ -1,0 +1,29 @@
+<div
+  *ngIf="prompt"
+  class="absolute top-0 left-0 bg-black/60 w-[100%] h-[100%] z-10 overflow-hidden flex justify-center"
+>
+  <div
+    [class]="close ? 'animate-slide_out' : 'animate-slide_in'"
+    class="bg-white rounded-md w-max mx-4 mt-60 p-3 h-max"
+  >
+    <h1 class="text-xl">
+      {{ prompt.message }}
+    </h1>
+    <div class="flex items-center gap-1 justify-end mt-2">
+      <button
+        (click)="cancel()"
+        *ngIf="prompt.negativeBtnText"
+        class="border-2 rounded-md py-1 px-3 bg-red-600 text-white border-white"
+      >
+        {{ prompt.negativeBtnText }}
+      </button>
+      <button
+        (click)="ok()"
+        *ngIf="prompt.positiveBtnText"
+        class="border-2 rounded-md py-1 px-3 bg-clr_primary text-white border-white"
+      >
+        {{ prompt.positiveBtnText }}
+      </button>
+    </div>
+  </div>
+</div>
