@@ -113,39 +113,48 @@ export class UrlboardComponent {
   }
 
   handleDelete(code: string, index: number) {
-    const lastIndex = this.state.events.length;
-    this.state.events.push({
-      message: 'Deleting url',
-      type: EventType.INPROGRESS,
-    });
-    setTimeout(() => {
-      this.service
-        .deleteUrl(code)
-        .then((successful) => {
-          if (successful) {
-            this.state.events[lastIndex] = {
-              message: 'Delete successful',
-              type: EventType.SUCCESS,
-            };
-            console.log(index);
-            this.state.urls?.splice(index, 1);
-          } else {
-            this.state.events[lastIndex] = {
-              message: 'Error deleting url',
-              type: EventType.ERROR,
-            };
-          }
-        })
-        .finally(() =>
-          setTimeout(
-            () =>
-              (this.state.events[lastIndex] = {
-                message: null,
-                type: EventType.NONE,
-              }),
-            3000
-          )
-        );
-    }, 3000);
+    this.state.prompt = {
+      message: 'hello',
+      onPositiveBtnClicked: null,
+      positiveBtnText: 'Cancel',
+      negativeBtnText: 'Delete',
+      close: false,
+      onNegativeBtnClicked: () => {
+        const lastIndex = this.state.events.length;
+        this.state.events.push({
+          message: 'Deleting url',
+          type: EventType.INPROGRESS,
+        });
+        setTimeout(() => {
+          this.service
+            .deleteUrl(code)
+            .then((successful) => {
+              if (successful) {
+                this.state.events[lastIndex] = {
+                  message: 'Delete successful',
+                  type: EventType.SUCCESS,
+                };
+                console.log(index);
+                this.state.urls?.splice(index, 1);
+              } else {
+                this.state.events[lastIndex] = {
+                  message: 'Error deleting url',
+                  type: EventType.ERROR,
+                };
+              }
+            })
+            .finally(() =>
+              setTimeout(
+                () =>
+                  (this.state.events[lastIndex] = {
+                    message: null,
+                    type: EventType.NONE,
+                  }),
+                3000
+              )
+            );
+        }, 3000);
+      },
+    };
   }
 }

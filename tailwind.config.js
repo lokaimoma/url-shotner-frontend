@@ -20,7 +20,7 @@ module.exports = {
       },
       animation: {
         slide_in: "slide_in 500ms ease-in-out forwards",
-        slide_out: "slide_out 500ms ease-in-out forwards",
+        slide_out: "slide_out 250ms ease-in-out forwards",
       },
     },
   },

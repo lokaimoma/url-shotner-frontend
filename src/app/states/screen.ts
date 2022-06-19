@@ -1,4 +1,5 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PromptData } from '../components/prompt/prompt.component';
 import { ConfirmedValidator, IsUrl } from '../components/register/validators';
 import { Event } from '../components/reusables/event-notifier/event-notifier.component';
 import { URL } from '../types/response';
@@ -48,6 +49,7 @@ class URLBoardState {
   requestError: boolean = false;
   form: FormGroup;
   events: Event[] = [];
+  prompt: PromptData | null = null;
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
