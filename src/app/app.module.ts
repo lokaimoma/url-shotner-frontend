@@ -17,9 +17,25 @@ import { EventNotifierComponent } from './components/reusables/event-notifier/ev
 import { PromptComponent } from './components/prompt/prompt.component';
 import { GraphQLModule } from './graphql.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { StatsPlaceholderComponent } from './components/loaders/stats-placeholder/stats-placeholder.component';
+import { TopShortUrlsPlaceholderComponent } from './components/loaders/top-short-urls-placeholder/top-short-urls-placeholder.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent, UrlboardComponent, SidebarComponent, SwitchComponent, EventNotifierComponent, PromptComponent, DashboardComponent],
+  declarations: [
+    AppComponent,
+    WelcomeComponent,
+    RegisterComponent,
+    MainComponent,
+    LoginComponent,
+    UrlboardComponent,
+    SidebarComponent,
+    SwitchComponent,
+    EventNotifierComponent,
+    PromptComponent,
+    DashboardComponent,
+    StatsPlaceholderComponent,
+    TopShortUrlsPlaceholderComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
