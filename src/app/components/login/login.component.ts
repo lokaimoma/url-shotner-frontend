@@ -34,7 +34,7 @@ export class LoginComponent {
           )
           .then((successfull) => {
             if (successfull) {
-              this.router.navigateByUrl('/app');
+              this.router.navigateByUrl('/app/dashboard');
             } else {
               this.state.showLoginError = true;
               this.state.showPleaseWait = false;

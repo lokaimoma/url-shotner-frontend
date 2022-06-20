@@ -114,10 +114,10 @@ export class UrlboardComponent {
 
   handleDelete(code: string, index: number) {
     this.state.prompt = {
-      message: 'hello',
+      message: 'Link will be permanently deleted. Should we proceed?',
       onPositiveBtnClicked: null,
-      positiveBtnText: 'Cancel',
-      negativeBtnText: 'Delete',
+      positiveBtnText: 'No',
+      negativeBtnText: 'Yes',
       close: false,
       onNegativeBtnClicked: () => {
         const lastIndex = this.state.events.length;

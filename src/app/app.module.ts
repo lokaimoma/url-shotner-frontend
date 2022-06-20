@@ -15,14 +15,17 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SwitchComponent } from './components/reusables/switch/switch.component';
 import { EventNotifierComponent } from './components/reusables/event-notifier/event-notifier.component';
 import { PromptComponent } from './components/prompt/prompt.component';
+import { GraphQLModule } from './graphql.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent, UrlboardComponent, SidebarComponent, SwitchComponent, EventNotifierComponent, PromptComponent],
+  declarations: [AppComponent, WelcomeComponent, RegisterComponent, MainComponent, LoginComponent, UrlboardComponent, SidebarComponent, SwitchComponent, EventNotifierComponent, PromptComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    GraphQLModule,
   ],
   providers: [AUTH_INTERCEPTOR_PROVIDERS],
   bootstrap: [AppComponent],

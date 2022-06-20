@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -11,9 +12,15 @@ const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'app', component: MainComponent, canActivate: [IsAuthenticatedGuard], children: [
-    {path: '', component: UrlboardComponent}
-  ] },
+  {
+    path: 'app',
+    component: MainComponent,
+    canActivate: [IsAuthenticatedGuard],
+    children: [
+      { path: 'url_shortner', component: UrlboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
+    ],
+  },
 ];
 
 @NgModule({

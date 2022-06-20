@@ -9,19 +9,31 @@
   <nav
     class="basis-full py-4 flex justify-center items-center flex-col gap-3 px-1"
   >
-    <a href="javascript:void(0)" routerLinkActive="active-link">
+    <a
+      routerLink="/app/dashboard/"
+      routerLinkActive="active-link"
+      class="border-2 p-1 border-transparent"
+    >
       <div class="flex w-max items-center justify-center gap-2">
         <img src="/assets/dashboard_.svg" alt="dashboard page link" />
         <span class="hidden sm:block">Dashboard</span>
       </div>
     </a>
-    <a routerLink="/app/" routerLinkActive="active-link">
+    <a
+      routerLink="url_shortner"
+      routerLinkActive="active-link"
+      class="border-2 p-1 border-transparent"
+    >
       <div class="flex w-max items-center justify-center gap-2">
         <img src="/assets/link.svg" alt="links page link" />
         <span class="hidden sm:block">URL Shortner</span>
       </div>
     </a>
-    <a href="javascript:void(0)" routerLinkActive="active-link">
+    <a
+      href="javascript:void(0)"
+      routerLinkActive="active-link"
+      class="border-2 p-1 border-transparent"
+    >
       <div class="flex w-max items-center justify-center gap-2">
         <img src="/assets/account.svg" alt="account page link" />
         <span class="hidden sm:block">Account</span>
