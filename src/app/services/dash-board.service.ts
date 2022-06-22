@@ -13,7 +13,7 @@ export class DashBoardService implements OnDestroy {
     this.querySubscription = this.apollo
       .watchQuery<DashBoardData, EmptyObject>({
         query: this.query,
-        notifyOnNetworkStatusChange: true,
+        pollInterval: 3000,
       })
       .valueChanges.subscribe(({ data, loading, error }) => {
         if (error) {
