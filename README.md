@@ -38,6 +38,13 @@ By default the app will run on `localhost:4200`. From there you can navigate to 
 
 As of now, there are no tests written on the frontend side. There are plans for it.
 
+## Techonologies and libraries used
+
+- [Angular](https://angular.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Apollo Angular](https://apollo-angular.com/docs/)
+- Etc...
+
 ## License
 
 ```
