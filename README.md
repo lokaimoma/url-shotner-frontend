@@ -2,6 +2,11 @@
 Linksly is a lite url shortening application. This is the frontend part of the application built with Angular.
 The backend part can be found <a hreaf="https://github.com/lokaimoma/url_shortner_backend/">here</a>.
 
+## Demo
+
+Click on the image to watch a demo of the application
+[![THe video image](./images/thumb.png)](https://youtu.be/82kETKDubrU)
+
 ## Requirements
 
 - [NodeJS](https://nodejs.org/en/)
