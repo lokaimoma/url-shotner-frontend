@@ -1,27 +1,66 @@
-# UrlShortner
+<h3 style='color: #5754FE'>Linksly</h3>
+Linksly is a lite url shortening application. This is the frontend part of the application built with Angular.
+The backend part can be found <a hreaf="https://github.com/lokaimoma/url_shortner_backend/">here</a>.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+## Requirements
 
-## Development server
+- [NodeJS](https://nodejs.org/en/)
+- [Angular CLI](https://angular.io/guide/setup-local)
+- [Backend part](https://github.com/lokaimoma/url_shortner_backend/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Quickstart
 
-## Code scaffolding
+- Clone the project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+git clone https://github.com/lokaimoma/url-shotner-frontend
+cd url-shotner-frontend
+```
 
-## Build
+- Intall dependencies with the command
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install
+```
 
-## Running unit tests
+- Launch the backend. All the steps can be found here [here](https://github.com/lokaimoma/url_shortner_backend/).
+- Run the application with the command
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+ng serve
+```
 
-## Running end-to-end tests
+## Routes
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+By default the app will run on `localhost:4200`. From there you can navigate to all the different parts of the app.
 
-## Further help
+## Tests
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+As of now, there are no tests written on the frontend side. There are plans for it.
+
+## License
+
+```
+
+MIT License
+
+Copyright (c) 2022 Owusu Kelvin Clark
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
