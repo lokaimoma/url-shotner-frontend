@@ -54,7 +54,7 @@ class URLBoardState {
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
-      url: ['', [Validators.required, IsUrl]],
+      url: ['', Validators.required, IsUrl],
     });
   }
 }
