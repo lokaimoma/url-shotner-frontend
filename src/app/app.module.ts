@@ -22,6 +22,7 @@ import { TopShortUrlsPlaceholderComponent } from './components/loaders/top-short
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
+import { UserInfoUpdateComponent } from './components/user-info-update/user-info-update.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { HttpLink } from 'apollo-angular/http';
     DashboardComponent,
     StatsPlaceholderComponent,
     TopShortUrlsPlaceholderComponent,
+    UserInfoUpdateComponent
   ],
   imports: [
     BrowserModule,

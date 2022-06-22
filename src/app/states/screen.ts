@@ -2,7 +2,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PromptData } from '../components/prompt/prompt.component';
 import { ConfirmedValidator, IsUrl } from '../components/register/validators';
 import { Event } from '../components/reusables/event-notifier/event-notifier.component';
-import { DashBoardData, URL } from '../types/response';
+import { AuthStorageService } from '../services/auth-storage.service';
+import { DashBoardData, URL, User } from '../types/response';
 
 class RegisterScreenState {
   showUserNameTakenError: boolean = false;
@@ -53,7 +54,7 @@ class URLBoardState {
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
-      url: ['', Validators.required, IsUrl],
+      url: ['', [Validators.required, IsUrl]],
     });
   }
 }
@@ -64,10 +65,28 @@ class DashBoardState {
   data: DashBoardData | null = null;
 }
 
+class UpdateUserInfoState {
+  showUserNameAlreadyTaken: boolean = false;
+  form: FormGroup;
+  userinfo: User;
+  events: Event[] = [];
+
+  constructor(fb: FormBuilder, authStorageService: AuthStorageService) {
+    const userinfo = authStorageService.getUserInfo();
+    this.form = fb.group({
+      username: [userinfo?.username, Validators.required],
+      fname: [userinfo?.first_name, Validators.required],
+      lname: [userinfo?.last_name, Validators.required],
+    });
+    this.userinfo = userinfo as User;
+  }
+}
+
 export {
   RegisterScreenState,
   LoginScreenState,
   MainScreenState,
   URLBoardState,
   DashBoardState,
+  UpdateUserInfoState,
 };

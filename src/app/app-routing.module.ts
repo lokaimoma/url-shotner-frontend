@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UrlboardComponent } from './components/urlboard/urlboard.component';
+import { UserInfoUpdateComponent } from './components/user-info-update/user-info-update.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { IsAuthenticatedGuard } from './guards/is-authenticated.guard';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
     children: [
       { path: 'url_shortner', component: UrlboardComponent },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'account', component: UserInfoUpdateComponent}
     ],
   },
 ];

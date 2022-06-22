@@ -1,0 +1,52 @@
+<div>
+  <h3 class="text-clr_primary text-2xl font-semibold">Account Settings</h3>
+  <form
+    class="flex flex-col gap-3 ml-3 mt-5 items-start"
+    [formGroup]="state.form"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="flex flex-col gap-4 sm:items-center sm:flex-row">
+      <label class="text-xl" for="username">Username</label>
+      <input
+        class="border-2 rounded-md p-1 outline-none focus:border-clr_primary transition-colors sm:w-[400px] lg:w-[700px]"
+        type="text"
+        name="username"
+        id="username"
+        formControlName="username"
+      />
+      <p *ngIf="state.showUserNameAlreadyTaken" class="text-red-600">
+        Username Already Taken
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-4 sm:items-center sm:flex-row">
+      <label class="text-xl" for="fname">First Name</label>
+      <input
+        class="border-2 rounded-md p-1 outline-none focus:border-clr_primary transition-colors sm:w-[400px] lg:w-[700px]"
+        type="text"
+        name="fname"
+        id="fname"
+        formControlName="fname"
+      />
+    </div>
+
+    <div class="flex flex-col gap-4 sm:items-center sm:flex-row">
+      <label class="text-xl" for="lname">Last Name</label>
+      <input
+        class="border-2 rounded-md p-1 outline-none focus:border-clr_primary transition-colors sm:w-[400px] lg:w-[700px]"
+        type="text"
+        name="lname"
+        id="lname"
+        formControlName="lname"
+      />
+    </div>
+
+    <input
+      type="submit"
+      value="Update"
+      class="bg-clr_primary text-white py-1 px-8 rounded-md font-semibold shadow cursor-pointer disabled:bg-blue-300"
+      [disabled]="!state.form.valid || !state.form.dirty"
+    />
+  </form>
+  <linksly-event-notifier [events]="state.events"></linksly-event-notifier>
+</div>

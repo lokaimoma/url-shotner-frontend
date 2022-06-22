@@ -15,8 +15,8 @@ export class DashBoardService implements OnDestroy {
         query: this.query,
         pollInterval: 3000,
       })
-      .valueChanges.subscribe(({ data, loading, error }) => {
-        if (error) {
+      .valueChanges.subscribe(({ data, loading, error, errors }) => {
+        if (error || errors) {
           this.state.errorsOccured = true;
         } else {
           this.state.errorsOccured = false;
