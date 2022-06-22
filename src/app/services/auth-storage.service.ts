@@ -45,7 +45,7 @@ export class AuthStorageService {
     return d;
   }
 
-  checkIfTokenIsOld(): boolean {
+  isTokenOld(): boolean {
     const dateInserted = window.localStorage.getItem(
       this.TOKEN_INSERT_DATE_KEY
     );

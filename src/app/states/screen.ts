@@ -2,7 +2,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PromptData } from '../components/prompt/prompt.component';
 import { ConfirmedValidator, IsUrl } from '../components/register/validators';
 import { Event } from '../components/reusables/event-notifier/event-notifier.component';
-import { URL } from '../types/response';
+import { DashBoardData, URL } from '../types/response';
 
 class RegisterScreenState {
   showUserNameTakenError: boolean = false;
@@ -58,9 +58,16 @@ class URLBoardState {
   }
 }
 
+class DashBoardState {
+  loading: boolean = true;
+  errorsOccured: boolean = false;
+  data: DashBoardData | null = null;
+}
+
 export {
   RegisterScreenState,
   LoginScreenState,
   MainScreenState,
   URLBoardState,
+  DashBoardState,
 };

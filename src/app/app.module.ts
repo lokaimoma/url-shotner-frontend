@@ -19,6 +19,9 @@ import { GraphQLModule } from './graphql.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StatsPlaceholderComponent } from './components/loaders/stats-placeholder/stats-placeholder.component';
 import { TopShortUrlsPlaceholderComponent } from './components/loaders/top-short-urls-placeholder/top-short-urls-placeholder.component';
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
+import { InMemoryCache } from '@apollo/client/core';
+import { HttpLink } from 'apollo-angular/http';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { TopShortUrlsPlaceholderComponent } from './components/loaders/top-short
     ReactiveFormsModule,
     HttpClientModule,
     GraphQLModule,
+    ApolloModule,
   ],
   providers: [AUTH_INTERCEPTOR_PROVIDERS],
   bootstrap: [AppComponent],

@@ -37,6 +37,16 @@ type URL = {
   redirects: number;
 };
 
+type URL_ = {}
+
+type DashBoardData = {
+  totalRedirects: number;
+  topLinks: URL[];
+  totalPassiveLinks: number;
+  totalActiveLinks: number;
+  totalLinks: number;
+};
+
 export {
   UserNameTakenResponse,
   User,
@@ -44,4 +54,5 @@ export {
   LoginResponse,
   Result,
   URL,
+  DashBoardData,
 };

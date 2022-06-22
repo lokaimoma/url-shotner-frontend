@@ -26,7 +26,7 @@ export class IsAuthenticatedGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.authStorageService.checkIfTokenIsOld())
+    if (this.authStorageService.isTokenOld())
       this.router.navigateByUrl('/login');
     if (this.authStorageService.getUserInfo() === null)
       this.router.navigateByUrl('/login');
