@@ -103,5 +103,39 @@
         </div>
       </div>
     </div>
+
+    <h3 class="text-clr_primary text-2xl font-semibold mt-8">Top Links</h3>
+    <table class="mt-5 w-full">
+      <thead class="border-b-2 border-clr_primary">
+        <th class="hidden sm:table-cell">Code</th>
+        <th>Long URL</th>
+        <th class="hidden sm:table-cell">Date Created</th>
+        <th>Redirects</th>
+        <th>Status</th>
+      </thead>
+
+      <tbody>
+        <tr
+          class="border-b-2 text-center"
+          *ngFor="let url of state.data.topLinks"
+        >
+          <td class="hidden sm:table-cell">{{ url.code }}</td>
+          <td class="py-3">{{ url.longUrl }}</td>
+          <td class="hidden sm:table-cell">{{ url.dateCreated }}</td>
+          <td>{{ url.redirects }}</td>
+          <td>
+            <p
+              class="p-1 rounded-md text-sm font-semibold"
+              [class.bg-green-200]="url.status === 'ACTIVE'"
+              [class.text-green-800]="url.status === 'ACTIVE'"
+              [class.bg-red-200]="url.status !== 'ACTIVE'"
+              [class.text-red-800]="url.status !== 'ACTIVE'"
+            >
+              {{ url.status }}
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </main>
 </div>

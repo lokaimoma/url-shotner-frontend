@@ -37,11 +37,14 @@ type URL = {
   redirects: number;
 };
 
-type URL_ = {}
+type URL_ = URL & {
+  longUrl: string;
+  dateCreated: string;
+};
 
 type DashBoardData = {
   totalRedirects: number;
-  topLinks: URL[];
+  topLinks: URL_[];
   totalPassiveLinks: number;
   totalActiveLinks: number;
   totalLinks: number;
