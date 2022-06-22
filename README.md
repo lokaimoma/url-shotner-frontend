@@ -1,6 +1,6 @@
 <h3 style='color: #5754FE'>Linksly</h3>
 Linksly is a lite url shortening application. This is the frontend part of the application built with Angular.
-The backend part can be found <a hreaf="https://github.com/lokaimoma/url_shortner_backend/">here</a>.
+The backend part can be found https://github.com/lokaimoma/url_shortner_backend/.
 
 ## Demo
 
